@@ -48,9 +48,14 @@ table {
 	border-spacing: 0;
 }
 
+a {
+	text-decoration: none;
+	color: red;
+}
+
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;	
 }
 
 html, body {
@@ -58,8 +63,29 @@ html, body {
 }
 
 // Variables ***********************************************************
-
+@wide-screen-down: ~'(max-width: 1080px)';
+@desktop-down: ~'(max-width: 991px)';
+@tablet-down: ~'(max-width: 890px)';
+@contact-breaks: ~'(max-width: 650px)';
+@phone-down: ~'(max-width: 500px)';
 // Mix Ins ************************************************************
+.my-first-mix-in() {
+	font-family: 'Eczar', sans-serif;
+	color:red;
+	font-size: 1.5rem;
+	border-bottom: 2px solid red;
+	padding-left: 5%;
+	text-decoration: underline;
+}
+
+.my-second-mix-in() {
+	font-family: 'Eczar', sans-serif;
+	color:blue;
+	padding: .5rem 0;
+	font-size: 1.25rem;
+	padding-left: 2.5%;
+}
+
 
 // Elements ************************************************************
 
@@ -72,7 +98,7 @@ html, body {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	padding: 5% 20%;
+	padding: 5% 0;
 	background: url(/images/background.jpg) no-repeat fixed center;
 	background-size: cover;
 
@@ -80,7 +106,10 @@ html, body {
 
 .container-resume {
 	max-width: 800px;
-	width: 100%;
+	@media @wide-screen-down{max-width: 800px;}
+	@media @desktop-down{max-width: 700px;}
+	@media @tablet-down{max-width: 600px;}
+	width: 70%;
 	background: white;
 	box-shadow: -15px 29px 17px 14px rgba(0,0,0,0.74);
 
@@ -88,11 +117,15 @@ html, body {
 
 		.logo-name {
 			display: flex;
+			@media @phone-down{display: block;}
+			@media @phone-down{text-align: center;}
 			padding: 2.5% 2.5% 0 2.5%;
 
 			.logo-box {
 				width: 35%;
+				@media @phone-down{width: 100%;}
 				background: grey;
+				@media @tablet-down{background: white;}
 				display: flex;
 				justify-content: center;
 				padding: 5%;
@@ -123,11 +156,26 @@ html, body {
 
 		nav {
 			display: flex;
+			@media @phone-down{flex-direction: column;}
 			justify-content: space-around;
-			background: green;
+			@media @phone-down{align-items:center;}
+			@media @phone-down{line-height: 3;}
+			@media @phone-down{text-align: center;}
+			@media @phone-down{outline:1px solid black;}
+			background: lightgreen;
 			padding: 1%;
+			@media @phone-down{padding: 0;}
 			width: 100%;
 			margin: 0;
+
+			a:first-child {
+				@media @phone-down{border-top:1px solid black;}
+
+			}
+			a {
+				@media @phone-down{width: 100%;}
+				@media @phone-down{border-bottom:1px solid black;}
+			}
 		}
 	
 
@@ -137,23 +185,18 @@ html, body {
 	.all-content{
 		padding: 0 2.5%;
 		display: flex;
+		@media @tablet-down{display: block;}
 		flex-wrap: wrap;
+		@media @tablet-down{text-align: center;}
 
 		
 
 		h1 {
-			color:red;
-			font-size: 1.5rem;
-			border-bottom: 2px solid red;
-			padding-left: 5%;
-			text-decoration: underline;
+			.my-first-mix-in;
 		}
 	
 		h2 {
-			color:blue;
-			padding: .5rem 0;
-			font-size: 1.25rem;
-			padding-left: 2.5%;
+			.my-second-mix-in;
 		}
 		
 		h3, h4 {
@@ -163,14 +206,18 @@ html, body {
 		ul {
 			list-style-type: disc;
 			margin-left: 2.5%;
+			
 		}
 		
 			
 		.left-side {
 			width: 35%;
+			@media @tablet-down{width: 100%;}
+			
 
 			p {
 				padding: 5%;
+				@media @tablet-down{padding:0 5% 5% 5%;}
 			}
 
 			.header-line {
@@ -179,27 +226,37 @@ html, body {
 
 			ul {
 				margin-left: 7%;
+				@media @tablet-down{padding-bottom: 5%;}
+				@media @tablet-down{list-style-type: none;}
+				@media @tablet-down{margin: 0;}
 			}
 
 			.column-content-about-me {
 				background: grey;
+				@media @tablet-down{background: white;}
 			}
 
 			.column-content-skills {
 				background: grey;
+				@media @tablet-down{background: white;}
 				margin-top: 1rem;
 				padding-bottom: 18%;
+				@media @tablet-down{padding-bottom: 5%;}
 			}
 
 		}
 
 		.right-side {
 			width: 64.5%;
+			@media @tablet-down{width:100%;}
 			padding-left:3.5%;
+			@media @tablet-down{padding: 0;}
 
 			p {
 				padding: 2.5%;
+				@media @tablet-down{padding-bottom: 5%;}
 			}
+
 			
 			.header-line {
 				padding: 1rem 0;
@@ -209,14 +266,27 @@ html, body {
 				margin-bottom: 5%;
 			}
 
+			.experience {
+				@media @tablet-down{padding: 0 2.5%;}
+			}
+
 			.contact-holder {
 				display: flex;
-				justify-content: space-around
-				
+				justify-content: space-around;
+				@media @contact-breaks{flex-direction: column;}
+			}
+
+			.contact-card {
+				@media @contact-breaks{padding: 5% 0;}
+			}
+
+			ul {
+				@media @contact-breaks{list-style-type: none;}
 			}
 
 			.center-content-references {
 				padding-bottom: 5%;
+				@media @tablet-down{padding-bottom: 10%;}
 			}
 
 
