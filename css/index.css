@@ -144,38 +144,107 @@ body {
   background-size: cover;
 }
 .container-resume {
-  padding: 2.5%;
   max-width: 800px;
   width: 100%;
-  height: 100%;
   background: white;
   box-shadow: -15px 29px 17px 14px rgba(0, 0, 0, 0.74);
 }
-.container-resume header {
-  background: grey;
-}
 .container-resume header .logo-name {
   display: flex;
-  justify-content: flex-start;
-  padding: 1%;
+  padding: 2.5% 2.5% 0 2.5%;
+}
+.container-resume header .logo-name .logo-box {
+  width: 35%;
+  background: grey;
+  display: flex;
+  justify-content: center;
+  padding: 5%;
 }
 .container-resume header .name {
   margin-left: 5%;
+  padding-top: 5%;
+  font-size: 2.8rem;
+  color: black;
 }
-.container-resume header .name h1 {
-  font-size: 1.9rem;
-  justify-content: flex-start;
-  color: whitesmoke;
+.container-resume header .name .first-name {
+  color: green;
 }
 .container-resume header .name h2 {
   font-size: 1rem;
+  line-height: 2;
+  font-style: italic;
 }
 .container-resume header nav {
   display: flex;
   justify-content: space-around;
-  background: lightgreen;
+  background: green;
   padding: 1%;
+  width: 100%;
+  margin: 0;
 }
-.container-resume ul {
+.container-resume .all-content {
+  padding: 0 2.5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container-resume .all-content h1 {
+  color: red;
+  font-size: 1.5rem;
+  border-bottom: 2px solid red;
+  padding-left: 5%;
+  text-decoration: underline;
+}
+.container-resume .all-content h2 {
+  color: blue;
+  padding: 0.5rem 0;
+  font-size: 1.25rem;
+  padding-left: 2.5%;
+}
+.container-resume .all-content h3,
+.container-resume .all-content h4 {
+  padding-left: 2.5%;
+}
+.container-resume .all-content ul {
   list-style-type: disc;
+  margin-left: 2.5%;
+}
+.container-resume .all-content .left-side {
+  width: 35%;
+}
+.container-resume .all-content .left-side p {
+  padding: 5%;
+}
+.container-resume .all-content .left-side .header-line {
+  padding: 1rem 0;
+}
+.container-resume .all-content .left-side ul {
+  margin-left: 7%;
+}
+.container-resume .all-content .left-side .column-content-about-me {
+  background: grey;
+}
+.container-resume .all-content .left-side .column-content-skills {
+  background: grey;
+  margin-top: 1rem;
+  padding-bottom: 18%;
+}
+.container-resume .all-content .right-side {
+  width: 64.5%;
+  padding-left: 3.5%;
+}
+.container-resume .all-content .right-side p {
+  padding: 2.5%;
+}
+.container-resume .all-content .right-side .header-line {
+  padding: 1rem 0;
+}
+.container-resume .all-content .right-side .center-content-experience {
+  margin-bottom: 5%;
+}
+.container-resume .all-content .right-side .contact-holder {
+  display: flex;
+  justify-content: space-around;
+}
+.container-resume .all-content .right-side .center-content-references {
+  padding-bottom: 5%;
 }
